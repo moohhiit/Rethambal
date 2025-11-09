@@ -113,19 +113,19 @@ const navigate = useNavigate();
   ];
 
   return (
-    <div className="pt-16">
+   <div className="pt-16" style={{ background: '#000000' }}>
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-indigo-50 via-white to-blue-50 py-20">
+      <section style={{ background: 'linear-gradient(to bottom right, #1a1a1a, #000000, #0d0d0d)', padding: '5rem 0' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-center"
           >
-            <h1 className="text-gray-900 mb-6">
+            <h1 className="mb-6" style={{ color: '#ffffff', fontSize: '2.5rem', fontWeight: 'bold' }}>
               Get in Touch
             </h1>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <p className="max-w-2xl mx-auto" style={{ color: '#b3b3b3', fontSize: '1.125rem', lineHeight: '1.75' }}>
               Have questions about AutoCampus? We'd love to hear from you.
               Send us a message and we'll respond as soon as possible.
             </p>
@@ -134,7 +134,7 @@ const navigate = useNavigate();
       </section>
 
       {/* Contact Info Cards */}
-      <section className="py-12 bg-white">
+      <section className="py-12" style={{ background: '#000000', padding: '3rem 0' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {contactInfo.map((info, index) => (
@@ -146,12 +146,12 @@ const navigate = useNavigate();
                 transition={{ delay: index * 0.1 }}
               >
                 <a href={info.link}>
-                  <Card className="p-6 text-center hover:shadow-lg transition-shadow h-full">
-                    <div className="bg-indigo-100 w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-4">
-                      <info.icon className="h-6 w-6 text-indigo-600" />
+                  <Card className="p-6 text-center transition-shadow h-full" style={{ background: '#1a1a1a', border: '1px solid #333333', padding: '1.5rem', textAlign: 'center' }}>
+                    <div className="w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-4" style={{ background: '#2a2a2a', margin: '0 auto 1rem' }}>
+                      <info.icon className="h-6 w-6" style={{ color: '#ffffff' }} />
                     </div>
-                    <h3 className="text-gray-900 mb-2">{info.title}</h3>
-                    <p className="text-gray-600">{info.content}</p>
+                    <h3 className="mb-2" style={{ color: '#ffffff', fontSize: '1.125rem', fontWeight: '600', marginBottom: '0.5rem' }}>{info.title}</h3>
+                    <p style={{ color: '#b3b3b3', fontSize: '0.875rem' }}>{info.content}</p>
                   </Card>
                 </a>
               </motion.div>
@@ -161,7 +161,7 @@ const navigate = useNavigate();
       </section>
 
       {/* Contact Form */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20" style={{ background: '#0d0d0d', padding: '5rem 0' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12">
             <motion.div
@@ -169,18 +169,18 @@ const navigate = useNavigate();
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-gray-900 mb-6">
+              <h2 className="mb-6" style={{ color: '#ffffff', fontSize: '2rem', fontWeight: '600', marginBottom: '1.5rem' }}>
                 Send Us a Message
               </h2>
-              <p className="text-gray-600 mb-8">
+              <p className="mb-8" style={{ color: '#b3b3b3', marginBottom: '2rem' }}>
                 Fill out the form below and our team will get back to you within 24 hours.
               </p>
 
-              <Card className="p-8">
+              <Card className="p-8" style={{ background: '#1a1a1a', border: '1px solid #333333', padding: '2rem' }}>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
-                      <Label htmlFor="firstName">First Name</Label>
+                      <Label htmlFor="firstName" style={{ color: '#ffffff', marginBottom: '0.5rem', display: 'block' }}>First Name</Label>
                       <Input
                         id="firstName"
                         type="text"
@@ -188,10 +188,11 @@ const navigate = useNavigate();
                         required
                         className="mt-1"
                         onChange={handleChange}
+                        style={{ background: '#0d0d0d', border: '1px solid #333333', color: '#ffffff', padding: '0.5rem' }}
                       />
                     </div>
                     <div>
-                      <Label htmlFor="lastName">Last Name</Label>
+                      <Label htmlFor="lastName" style={{ color: '#ffffff', marginBottom: '0.5rem', display: 'block' }}>Last Name</Label>
                       <Input
                         id="lastName"
                         type="text"
@@ -199,12 +200,13 @@ const navigate = useNavigate();
                         required
                         className="mt-1"
                         onChange={handleChange}
+                        style={{ background: '#0d0d0d', border: '1px solid #333333', color: '#ffffff', padding: '0.5rem' }}
                       />
                     </div>
                   </div>
 
                   <div>
-                    <Label htmlFor="email">Email</Label>
+                    <Label htmlFor="email" style={{ color: '#ffffff', marginBottom: '0.5rem', display: 'block' }}>Email</Label>
                     <Input
                       id="email"
                       type="email"
@@ -212,33 +214,36 @@ const navigate = useNavigate();
                       required
                       className="mt-1"
                       onChange={handleChange}
+                      style={{ background: '#0d0d0d', border: '1px solid #333333', color: '#ffffff', padding: '0.5rem' }}
                     />
                   </div>
 
                   <div>
-                    <Label htmlFor="phone">Phone Number</Label>
+                    <Label htmlFor="phone" style={{ color: '#ffffff', marginBottom: '0.5rem', display: 'block' }}>Phone Number</Label>
                     <Input
                       id="phone"
                       type="tel"
                       placeholder="+91 00********00"
                       className="mt-1"
                       onChange={handleChange}
+                      style={{ background: '#0d0d0d', border: '1px solid #333333', color: '#ffffff', padding: '0.5rem' }}
                     />
                   </div>
 
                   <div>
-                    <Label htmlFor="institution">Institution Name</Label>
+                    <Label htmlFor="institution" style={{ color: '#ffffff', marginBottom: '0.5rem', display: 'block' }}>Institution Name</Label>
                     <Input
                       id="institution"
                       type="text"
                       placeholder="Your School/College Name"
                       className="mt-1"
                       onChange={handleChange}
+                      style={{ background: '#0d0d0d', border: '1px solid #333333', color: '#ffffff', padding: '0.5rem' }}
                     />
                   </div>
 
                   <div>
-                    <Label htmlFor="message">Message</Label>
+                    <Label htmlFor="message" style={{ color: '#ffffff', marginBottom: '0.5rem', display: 'block' }}>Message</Label>
                     <Textarea
                       id="message"
                       placeholder="Tell us about your requirements..."
@@ -246,20 +251,19 @@ const navigate = useNavigate();
                       required
                       className="mt-1"
                       onChange={handleChange}
+                      style={{ background: '#0d0d0d', border: '1px solid #333333', color: '#ffffff', padding: '0.5rem', minHeight: '120px' }}
                     />
                   </div>
                   {onsubmiting ? (
-                    <Label htmlFor="message" className="w-full bg-indigo-600 hover:bg-indigo-700 text-white" style={{ padding: 10, borderRadius: 10 }}>
+                    <Label htmlFor="message" className="w-full text-white" style={{ padding: 10, borderRadius: 10, background: '#2a2a2a', textAlign: 'center', color: '#ffffff', display: 'block' }}>
                       Sending Message...
                     </Label>
                   ) : (
-                    <Button type="submit" size="lg" className="w-full bg-indigo-600 hover:bg-indigo-700 text-white">
+                    <Button type="submit" size="lg" className="w-full text-white" style={{ background: '#ffffff', color: '#000000', padding: '0.75rem', borderRadius: '0.5rem', fontWeight: '600', width: '100%' }}>
                       Send Message
                       <Send className="ml-2 h-4 w-4" />
                     </Button>
                   )}
-
-
                 </form>
               </Card>
             </motion.div>
@@ -269,10 +273,10 @@ const navigate = useNavigate();
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-gray-900 mb-6">
+              <h2 className="mb-6" style={{ color: '#ffffff', fontSize: '2rem', fontWeight: '600', marginBottom: '1.5rem' }}>
                 Our Offices
               </h2>
-              <p className="text-gray-600 mb-8">
+              <p className="mb-8" style={{ color: '#b3b3b3', marginBottom: '2rem' }}>
                 Visit us at any of our global locations or reach out to your nearest office.
               </p>
 
@@ -286,16 +290,16 @@ const navigate = useNavigate();
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
                   >
-                    <Card className="p-6 hover:shadow-lg transition-shadow">
-                      <h3 className="text-gray-900 mb-3">{office.city}</h3>
-                      <div className="space-y-2 text-gray-600">
+                    <Card className="p-6 transition-shadow" style={{ background: '#1a1a1a', border: '1px solid #333333', padding: '1.5rem' }}>
+                      <h3 className="mb-3" style={{ color: '#ffffff', fontSize: '1.25rem', fontWeight: '600', marginBottom: '0.75rem' }}>{office.city}</h3>
+                      <div className="space-y-2">
                         <div className="flex items-start space-x-3">
-                          <MapPin className="h-5 w-5 text-indigo-600 flex-shrink-0 mt-0.5" />
-                          <span>{office.address}</span>
+                          <MapPin className="h-5 w-5 flex-shrink-0 mt-0.5" style={{ color: '#ffffff' }} />
+                          <span style={{ color: '#b3b3b3' }}>{office.address}</span>
                         </div>
                         <div className="flex items-center space-x-3">
-                          <Phone className="h-5 w-5 text-indigo-600 flex-shrink-0" />
-                          <span>{office.phone}</span>
+                          <Phone className="h-5 w-5 flex-shrink-0" style={{ color: '#ffffff' }} />
+                          <span style={{ color: '#b3b3b3' }}>{office.phone}</span>
                         </div>
                       </div>
                     </Card>

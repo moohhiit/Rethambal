@@ -25,7 +25,6 @@ export function Navigation() {
         { name: 'Home', path: '/' },
         { name: 'Features', path: '/features' },
         { name: 'About', path: '/about' },
-        { name: 'Pricing', path: '/pricing' },
         { name: 'Contact', path: '/contact' },
     ];
 
@@ -35,6 +34,9 @@ export function Navigation() {
             animate={{ y: 0 }}
             className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md' : 'bg-white/95 backdrop-blur-sm'
                 }`}
+            style={{backgroundColor:
+                "black"
+            }}
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-16">
@@ -44,7 +46,7 @@ export function Navigation() {
                         style={{height:40 , width:40 , alignSelf:'center'}}
                             src='https://res.cloudinary.com/doytvgisa/image/upload/v1761199685/Frame_2_2_eizq6p.png'
                         ></img>
-                        <div style={{fontSize:30}} >
+                        <div style={{fontSize:30 , color:'white'}} >
 
                        {WebName}
                         </div>
@@ -79,6 +81,7 @@ export function Navigation() {
                     <button
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                         className="md:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100"
+
                     >
                         {isMobileMenuOpen ? (
                             <X className="h-6 w-6" />
@@ -98,6 +101,7 @@ export function Navigation() {
                         exit={{ opacity: 0, x: '100%' }}
                         transition={{ type: 'spring', stiffness: 300, damping: 30 }}
                         className="md:hidden bg-white border-t"
+                        style={{backgroundColor:'black'}}
                     >
                         <div className="px-4 py-4 space-y-2">
                             {navLinks.map((link, index) => (
@@ -111,8 +115,10 @@ export function Navigation() {
                                         to={link.path}
                                         className={`block px-4 py-2 rounded-md ${location.pathname === link.path
                                                 ? 'bg-indigo-50 text-indigo-600'
-                                                : 'text-gray-700 hover:bg-gray-50'
+                                                : 'text-white-700 hover:bg-gray-50'
                                             }`}
+
+                                        style={{color:location.pathname === link.path?"Black" : 'white'}}
                                     >
                                         {link.name}
                                     </Link>

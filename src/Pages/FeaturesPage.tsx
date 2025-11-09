@@ -1,8 +1,8 @@
 import { motion } from 'motion/react';
-import { 
-  Clock, Users, BarChart3, Smartphone, 
-  CheckCircle, Bell, Shield, Zap, 
-  Database, Calendar, MessageSquare, FileText 
+import {
+  Clock, Users, BarChart3, Smartphone,
+  CheckCircle, Bell, Shield, Zap,
+  Database, Calendar, MessageSquare, FileText
 } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../Components/Ui/tabs';
 import { Card } from '../Components/Ui/card';
@@ -21,7 +21,7 @@ export function FeaturesPage() {
         'Customizable attendance rules',
         'Absence tracking and alerts',
       ],
-      imageUrl : "https://res.cloudinary.com/doytvgisa/image/upload/v1761230747/AutoAttandance_ocr3kq.png"
+      imageUrl: "https://res.cloudinary.com/doytvgisa/image/upload/v1762318470/undraw_my-resume_etai_zgmi2j.svg"
     },
     {
       icon: Users,
@@ -34,7 +34,7 @@ export function FeaturesPage() {
         'Parent-teacher meeting scheduler',
         'Fee payment integration',
       ],
-      imageUrl : "https://res.cloudinary.com/doytvgisa/image/upload/v1761231559/Parens-instistude_j68kky.png"
+      imageUrl: "https://res.cloudinary.com/doytvgisa/image/upload/v1762319376/undraw_product-explainer_b7ft_hk7uip.svg"
     },
     {
       icon: BarChart3,
@@ -47,7 +47,7 @@ export function FeaturesPage() {
         'Comparative analytics',
         'Behavior and conduct monitoring',
       ],
-      imageUrl : "https://res.cloudinary.com/doytvgisa/image/upload/v1761231744/Performance-Analytics_mwxtp6.png"
+      imageUrl: "https://res.cloudinary.com/doytvgisa/image/upload/v1762319601/undraw_app-benchmarks_ls0m_uhjtl4.svg"
     },
     {
       icon: Smartphone,
@@ -60,7 +60,7 @@ export function FeaturesPage() {
         'Secure authentication',
         'Intuitive user interface',
       ],
-      imageUrl : "https://res.cloudinary.com/doytvgisa/image/upload/v1761231904/Mobile-Application_dlzelp.png"
+      imageUrl: "https://res.cloudinary.com/doytvgisa/image/upload/v1762319709/undraw_real-time-sync_ro77_ldlkxv.svg"
     },
   ];
 
@@ -76,76 +76,231 @@ export function FeaturesPage() {
   ];
 
   return (
-    <div className="pt-16">
+    <div className="pt-16" style={{ backgroundColor: 'black' }}>
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-indigo-50 via-white to-blue-50 py-20">
+      <section className="py-20" style={{ backgroundColor: 'black' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-center mb-12"
           >
-            <h1 className="text-gray-900 mb-6">
+            <h1 className="mb-6" style={{ color: 'white', fontSize: '2.5rem', fontWeight: 'bold' }}>
               Comprehensive Features for Modern Education
             </h1>
-            <p className="text-gray-600 max-w-3xl mx-auto">
-              {WebName} provides a complete suite of tools designed to automate operations, 
+            <p className="max-w-3xl mx-auto" style={{ color: "#b3b3b3", fontSize: '1.125rem', lineHeight: '1.75' }}>
+              {WebName} provides a complete suite of tools designed to automate operations,
               enhance communication, and improve student outcomes.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Main Features Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20" style={{ backgroundColor: 'black' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Tabs defaultValue="attendance" className="w-full">
-            <TabsList className="grid w-full grid-cols-2 lg:grid-cols-4 gap-2 mb-8 sm:mb-12 h-auto">
-              <TabsTrigger value="attendance" className="text-sm sm:text-base py-2 sm:py-3">Attendance</TabsTrigger>
-              <TabsTrigger value="connect" className="text-sm sm:text-base py-2 sm:py-3">Parent Connect</TabsTrigger>
-              <TabsTrigger value="performance" className="text-sm sm:text-base py-2 sm:py-3">Performance</TabsTrigger>
-              <TabsTrigger value="mobile" className="text-sm sm:text-base py-2 sm:py-3">Mobile App</TabsTrigger>
-            </TabsList>
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <TabsList className="grid w-full grid-cols-2 px-10 lg:grid-cols-4 gap-2 mb-8 sm:mb-12 h-auto" style={{ background: '#1a1a1a', border: '1px solid #333333' }}>
+                {['attendance', 'connect', 'performance', 'mobile'].map((tab, idx) => (
+                  <motion.div
+                    key={tab}
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: idx * 0.1, duration: 0.3 }}
+                  >
+                    <TabsTrigger
+                      value={tab}
+                      className="sm:py-3 transition-all duration-300 hover:scale-105"
+                      style={{
+                        padding: 10,
+                        background: 'transparent',
+                        color: '#b3b3b3',
+                        border: '1px solid transparent'
+                      }}
+                    >
+                      {tab === 'attendance' && 'Attendance'}
+                      {tab === 'connect' && 'Parent Connect'}
+                      {tab === 'performance' && 'Performance'}
+                      {tab === 'mobile' && 'Mobile App'}
+                    </TabsTrigger>
+                  </motion.div>
+                ))}
+              </TabsList>
+            </motion.div>
 
             {mainFeatures.map((feature, index) => (
-              <TabsContent 
-                key={index} 
+              <TabsContent
+                key={index}
                 value={['attendance', 'connect', 'performance', 'mobile'][index]}
               >
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="grid lg:grid-cols-2 gap-12 items-center"
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  className="grid lg:grid-cols-2 gap-12 items-stretch"
                 >
-                  <div>
-                    <div className="bg-indigo-100 w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
-                      <feature.icon className="h-8 w-8 text-indigo-600" />
-                    </div>
-                    <h2 className="text-gray-900 mb-4">{feature.title}</h2>
-                    <p className="text-gray-600 mb-6">{feature.description}</p>
-                    <div className="space-y-3">
+                  <motion.div
+                    initial={{ opacity: 0, x: -30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.2, duration: 0.5 }}
+                    className="flex flex-col"
+                  >
+                    <motion.div
+                      initial={{ scale: 0, rotate: -180 }}
+                      animate={{ scale: 1, rotate: 0 }}
+                      transition={{ delay: 0.3, type: "spring", stiffness: 200, damping: 15 }}
+                      className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6"
+                      style={{ background: '#2a2a2a' }}
+                    >
+                      <motion.div
+                        animate={{
+                          y: [0, -3, 0],
+                        }}
+                        transition={{
+                          delay: 0.8,
+                          duration: 2,
+                          repeat: Infinity,
+                          ease: "easeInOut"
+                        }}
+                      >
+                        <feature.icon className="h-8 w-8" style={{ color: 'white' }} />
+                      </motion.div>
+                    </motion.div>
+
+                    <motion.h2
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.4, duration: 0.5 }}
+                      className="mb-4"
+                      style={{ color: 'white', fontSize: '2rem', fontWeight: '600' }}
+                    >
+                      {feature.title}
+                    </motion.h2>
+
+                    <motion.p
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.5, duration: 0.5 }}
+                      className="mb-6"
+                      style={{ color: "#b3b3b3" }}
+                    >
+                      {feature.description}
+                    </motion.p>
+
+                    <div className="space-y-3 flex-grow">
                       {feature.features.map((item, idx) => (
-                        <div key={idx} className="flex items-start space-x-3">
-                          <CheckCircle className="h-5 w-5 text-indigo-600 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-700">{item}</span>
-                        </div>
+                        <motion.div
+                          key={idx}
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: 0.6 + idx * 0.1, duration: 0.4 }}
+                          whileHover={{ x: 5 }}
+                          className="flex items-start space-x-3 cursor-default"
+                        >
+                          <motion.div
+                            initial={{ scale: 0 }}
+                            animate={{ scale: 1 }}
+                            transition={{
+                              delay: 0.7 + idx * 0.1,
+                              type: "spring",
+                              stiffness: 500,
+                              damping: 20
+                            }}
+                          >
+                            <CheckCircle className="h-5 w-5 flex-shrink-0 mt-0.5" style={{ color: 'white' }} />
+                          </motion.div>
+                          <span style={{ color: '#b3b3b3' }}>{item}</span>
+                        </motion.div>
                       ))}
                     </div>
-                  </div>
+                  </motion.div>
 
-                  <div className="relative">
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.3, duration: 0.6, ease: "easeOut" }}
+                    className="relative flex items-center justify-center"
+                  >
+                    {/* Animated background blob - now in grayscale */}
                     <motion.div
-                      animate={{ y: [0, -10, 0] }}
-                      transition={{ duration: 3, repeat: Infinity }}
-                      className="rounded-2xl overflow-hidden shadow-2xl max-w-md lg:max-w-full w-full"
+                      animate={{
+                        scale: [1, 1.05, 1],
+                        rotate: [0, 5, 0]
+                      }}
+                      transition={{
+                        duration: 8,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                      }}
+                      className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full rounded-full blur-3xl"
+                      style={{ background: 'radial-gradient(circle, rgba(50,50,50,0.6) 0%, rgba(30,30,30,0.4) 50%, rgba(10,10,10,0.2) 100%)' }}
+                    />
+
+                    <motion.div
+                      animate={{
+                        y: [0, -15, 0],
+                      }}
+                      transition={{
+                        duration: 4,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                      }}
+                      className="relative w-full h-full flex items-center justify-center px-4"
+                      whileHover={{
+                        scale: 1.05,
+                        transition: { duration: 0.3 }
+                      }}
                     >
-                      <img
+                      <motion.img
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8 }}
                         src={feature.imageUrl}
                         alt={feature.title}
-                        className="w-full h-auto object-contain"
+                        className="object-contain drop-shadow-lg"
+                        style={{
+                          height: 406,
+                          width: "auto",
+                          border: '1px solid #333333',
+                          borderRadius: '0.5rem'
+                        }}
                       />
                     </motion.div>
-                  </div>
+
+                    {/* Decorative floating elements - now in grayscale */}
+                    <motion.div
+                      animate={{
+                        y: [0, -20, 0],
+                        x: [0, 10, 0],
+                      }}
+                      transition={{
+                        duration: 5,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                      }}
+                      className="absolute top-10 right-0 w-16 h-16 rounded-full blur-xl"
+                      style={{ background: '#333333', opacity: 0.2 }}
+                    />
+
+                    <motion.div
+                      animate={{
+                        y: [0, 20, 0],
+                        x: [0, -10, 0],
+                      }}
+                      transition={{
+                        duration: 6,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                        delay: 1
+                      }}
+                      className="absolute bottom-10 left-0 w-20 h-20 rounded-full blur-xl"
+                      style={{ background: '#444444', opacity: 0.2 }}
+                    />
+                  </motion.div>
                 </motion.div>
               </TabsContent>
             ))}
@@ -154,7 +309,7 @@ export function FeaturesPage() {
       </section>
 
       {/* Additional Features Grid */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20" style={{ backgroundColor: 'black' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -162,9 +317,9 @@ export function FeaturesPage() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-gray-900 mb-4">And Many More Features</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              {WebName}is packed with additional tools and capabilities to support 
+            <h2 className="mb-4" style={{ color: 'white', fontSize: '2rem', fontWeight: '600' }}>And Many More Features</h2>
+            <p className="max-w-2xl mx-auto" style={{ color: '#b3b3b3' }}>
+              {WebName} is packed with additional tools and capabilities to support
               every aspect of your institution.
             </p>
           </motion.div>
@@ -179,55 +334,16 @@ export function FeaturesPage() {
                 transition={{ delay: index * 0.05 }}
                 whileHover={{ y: -5 }}
               >
-                <Card className="p-6 h-full hover:shadow-lg transition-shadow">
-                  <div className="bg-indigo-50 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                    <feature.icon className="h-6 w-6 text-indigo-600" />
+                <Card className="p-6 h-full transition-all duration-300" style={{ background: '#1a1a1a', border: '1px solid #333333' }}>
+                  <div className="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style={{ background: '#2a2a2a' }}>
+                    <feature.icon className="h-6 w-6" style={{ color: 'white' }} />
                   </div>
-                  <h3 className="text-gray-900 mb-2">{feature.title}</h3>
-                  <p className="text-gray-600">{feature.description}</p>
+                  <h3 className="font-semibold mb-2" style={{ color: 'white', fontSize: '1.125rem' }}>{feature.title}</h3>
+                  <p style={{ color: '#b3b3b3', fontSize: '0.875rem' }}>{feature.description}</p>
                 </Card>
               </motion.div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Integration Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center"
-          >
-            <h2 className="text-gray-900 mb-6">
-              Seamless Integration with Your Existing Systems
-            </h2>
-            <p className="text-gray-600 max-w-3xl mx-auto mb-12">
-              {WebName}easily integrates with your current infrastructure, including 
-              student information systems, learning management platforms, and payment gateways.
-            </p>
-            <div className="grid md:grid-cols-3 gap-8">
-              {['Student Information Systems', 'Learning Management Systems', 'Payment Gateways'].map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                >
-                  <Card className="p-8">
-                    <div className="bg-indigo-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Database className="h-8 w-8 text-indigo-600" />
-                    </div>
-                    <h3 className="text-gray-900 mb-2">{item}</h3>
-                    <p className="text-gray-600">Easy integration and data synchronization</p>
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
         </div>
       </section>
     </div>
